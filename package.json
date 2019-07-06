@@ -1,0 +1,84 @@
+{
+  "name": "electron-tx",
+  "version": "1.0.5",
+  "description": "NodeJS based system to enforce atomic transactions for multiple asychronous actions",
+  "main": "./lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "clean": "rimraf lib",
+    "lint": "./node_modules/.bin/eslint --fix . --ext .js",
+    "test": "./node_modules/.bin/mocha --exit --timeout 10000 --recursive",
+    "coverage": "nyc --check-coverage npm test",
+    "build": "cross-env BABEL_ENV=production babel src --out-dir lib",
+    "prepublish": "npm run clean && npm run lint && npm run test && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbartram/Electron.git"
+  },
+  "keywords": [
+    "nodejs",
+    "atomic",
+    "transaction",
+    "javascript",
+    "asyc",
+    "asychronous",
+    "await",
+    "node"
+  ],
+  "author": "Christian Bartram",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cbartram/Electron/issues"
+  },
+  "homepage": "https://github.com/cbartram/Electron#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-classes": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "babel-preset-minify": "^0.5.0",
+    "chai": "^4.2.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.3",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "rimraf": "^2.6.3"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "lodash": "^4.17.11"
+  },
+  "eslintConfig": {
+    "env": {
+      "commonjs": true,
+      "es6": true,
+      "node": true
+    },
+    "extends": "airbnb-base",
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly",
+      "describe": "readonly",
+      "it": "readonly",
+      "window": "readonly",
+      "document": "readonly"
+    },
+    "parserOptions": {
+      "ecmaVersion": 2018
+    },
+    "rules": {
+      "no-console": "off",
+      "no-plusplus": "off",
+      "max-len": "off"
+    }
+  }
+}

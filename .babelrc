@@ -1,0 +1,33 @@
+{
+  "env": {
+    "development": {
+      "presets": [
+        [
+          "@babel/preset-env", {
+          "targets": {
+            "node": "current"
+          }
+        }
+        ]
+      ],
+      "plugins": [
+        "@babel/plugin-transform-classes"
+      ]
+    },
+    "production": {
+      "presets": [
+        [
+          "@babel/preset-env", {
+          "targets": {
+            "node": "current"
+          }
+        }
+        ],
+        "minify"
+      ],
+      "plugins": [
+        "@babel/plugin-transform-classes"
+      ]
+    }
+  }
+}
